@@ -17,8 +17,8 @@
   <main>
     <div class="header">
       <h1 class="h1">IP Address Tracker</h1>
-      <form action="/" method="post" class="form">
-        <input type="text" name="ip" id="ip" class="input" placeholder="Search for any IP address or domain">
+      <form class="form">
+        <input type="text" name="ip" id="ip" class="input" placeholder="Search for any IP address">
         <button class="submit-btn">
           <img src="./images/icon-arrow.svg" alt="">
         </button>
@@ -27,19 +27,19 @@
       <ul class="details-container">
         <li>
           <p class="title">IP ADDRESS</p>
-          <p class="placeholder">192.212.174.101</p>
+          <p class="placeholder" id="ip-address">###.###.###.###</p>
         </li>
         <li>
           <p class="title">LOCATION</p>
-          <p class="placeholder">Brooklyn, NY 10001</p>
+          <p class="placeholder" id="location">#####, ## #####</p>
         </li>
         <li>
           <p class="title">TIMEZONE</p>
-          <p class="placeholder">UTC-05:00</p>
+          <p class="placeholder" id="timezone">UTC-##:##</p>
         </li>
         <li>
           <p class="title">ISP</p>
-          <p class="placeholder">SpaceX Starlink</p>
+          <p class="placeholder" id="isp">#### ####</p>
         </li>
       </ul>
     </div>

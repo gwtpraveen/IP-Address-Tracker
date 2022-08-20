@@ -3,6 +3,12 @@ const locationEl = document.getElementById("location");
 const timezoneEl = document.getElementById("timezone");
 const ispEl = document.getElementById("isp");
 const formEl = document.querySelector(".form");
+let map = L.map('map');
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap'
+}).addTo(map);
 
 function generateData(ipAddress) {
   ipAddressEl.innerText = ipAddress;
@@ -16,17 +22,12 @@ function generateData(ipAddress) {
       timezoneEl.innerText = timezone;
       ispEl.innerText = isp;
 
-      let map = L.map('map');
       map.setView([lat, lon], 13);
       // change marker icon
       let myIcon = L.icon({
           iconUrl: '../images/icon-location.svg'
       });
 
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          maxZoom: 19,
-          attribution: '© OpenStreetMap'
-      }).addTo(map);
 
       // mark the marker 
       let marker = L.marker([lat, lon], {icon: myIcon}).addTo(map);
@@ -51,6 +52,8 @@ formEl.addEventListener("submit", e => {
   const reg = /^((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])$/
   if (reg.test(userIpAddress)) {
     generateData(userIpAddress)
+  } else {
+    alert("invalid IP Address")
   }
 })
 // 192.212.174.101

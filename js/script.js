@@ -45,7 +45,10 @@ fetch("https://api.ipify.org?format=json")
   .then(data => {
     generateData(data.ip);
   })
-.catch(err => console.log(err));
+.catch(err => {
+    console.log(err);
+    alert("You appear to be using an ad blocker. Please disable them to use this site.")
+});
 
 formEl.addEventListener("submit", e => {
   e.preventDefault();

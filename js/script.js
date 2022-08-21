@@ -5,6 +5,8 @@ const ispEl = document.getElementById("isp");
 const formEl = document.querySelector(".form");
 let map = L.map('map');
 
+const API_KEY = process.env.API_KEY;
+
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '© OpenStreetMap'
@@ -13,12 +15,13 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 function generateData(ipAddress) {
   ipAddressEl.innerText = ipAddress;
   // fetch the data from the ip api
-  fetch(`http://ip-api.com/json/${ipAddress}`)
+  fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${API_KEY}&ipAddress=${ipAddress}`)
     .then(res => res.json())
     .then(data => {
-      const {city, countryCode, isp, lat, lon, zip, timezone} = data;
+      console.log(data)
+      const {location : {city, lat, lng:lon, country, timezone, postalCode}, isp} = data;
       // update DOM
-      locationEl.innerText = `${city}, ${countryCode}\n${zip}`;
+      locationEl.innerText = `${city}, ${country}\n${postalCode}`;
       timezoneEl.innerText = timezone;
       ispEl.innerText = isp;
 
@@ -34,6 +37,7 @@ function generateData(ipAddress) {
     })
     .catch(function(error) {
       console.log(error)
+      alert("Some thing went wrong! Please Try again later!")
     });
 }
 
@@ -56,4 +60,3 @@ formEl.addEventListener("submit", e => {
     alert("invalid IP Address")
   }
 })
-// 192.212.174.101

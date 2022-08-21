@@ -1,10 +1,10 @@
+import API_KEY from "./apiKey.js";
 const ipAddressEl = document.getElementById("ip-address");
 const locationEl = document.getElementById("location");
 const timezoneEl = document.getElementById("timezone");
 const ispEl = document.getElementById("isp");
 const formEl = document.querySelector(".form");
 let map = L.map('map');
-import API_KEY from "./apiKey";
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -17,7 +17,6 @@ function generateData(ipAddress) {
   fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${API_KEY}&ipAddress=${ipAddress}`)
     .then(res => res.json())
     .then(data => {
-      console.log(data)
       const {location : {city, lat, lng:lon, country, timezone, postalCode}, isp} = data;
       // update DOM
       locationEl.innerText = `${city}, ${country}\n${postalCode}`;

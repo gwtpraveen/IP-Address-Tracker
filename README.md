@@ -1,6 +1,4 @@
-# Frontend Mentor - Profile card component solution
-
-This is a solution to the [Profile card component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/profile-card-component-cfArpWshJ). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+# IP Address Tracker
 
 ## Table of contents
 
@@ -16,6 +14,7 @@ This is a solution to the [Profile card component challenge on Frontend Mentor](
 ### Screenshot
 
 ![the screenshot](./Screenshot.png)
+- [Live-URL](https://630233453a95cb144850e74c--thunderous-paletas-08d48f.netlify.app/)
 
 ## My process
 
@@ -24,7 +23,8 @@ This is a solution to the [Profile card component challenge on Frontend Mentor](
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- grid
+- API
+- JavaScript
 
 ### Useful resources
 

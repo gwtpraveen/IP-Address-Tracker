@@ -4,8 +4,7 @@ const timezoneEl = document.getElementById("timezone");
 const ispEl = document.getElementById("isp");
 const formEl = document.querySelector(".form");
 let map = L.map('map');
-
-const API_KEY = process.env.API_KEY;
+import API_KEY from "./apiKey";
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
